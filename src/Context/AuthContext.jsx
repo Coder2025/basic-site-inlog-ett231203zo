@@ -7,22 +7,38 @@ function AuthContextProvider ({ children }) {
 
     const navigate = useNavigate();
 
-    const [isAuth, toggleIsAuth] = useState(false);
+    const [auth, setAuth] = useState({
+        isAuth: false,
+        user: null,
+
+    });
         // Token opslaat in localstorage >>
+
      function login(){
-        toggleIsAuth(true)
+            setAuth({
+            ...auth,
+            isAuth: true,
+            user: {
+                email: 'pietje@puk.nl',
+                id: 1
+            }
+        })
         navigate('/');
     }
 
     function logout() {
-        toggleIsAuth(false);
+            setAuth({
+                ...auth,
+                isAuth: false,
+                user: null
+            })
         navigate('/');
     }
 
     const data = {
-        isAuth,
-        login,
+        isAuth: auth.isAuth,
         logout,
+        login,
     }
 
     return (

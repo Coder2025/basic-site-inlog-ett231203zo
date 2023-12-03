@@ -14,6 +14,7 @@ const Navbar = () => {
                 <li><NavLink to="/products">Products</NavLink></li>
                 <li><NavLink to="/contact">Contact</NavLink></li>
                 <li><NavLink to="/registreer">Registratie</NavLink></li>
+                <li><NavLink to="/login">Login</NavLink></li>
             </ul>
             {isAuth ?
                 <button type="button" onClick={logout}>Logout</button>
